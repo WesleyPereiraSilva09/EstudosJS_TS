@@ -11,6 +11,13 @@ function criaPessoa(nome, sobrenome, a, p){
 
         //setter
         set nomeCompleto(valor){
+            //está transformando o valor recebido na variavel valor em um array
+            valor = valor.split(' ');
+            // a função shift atrelada a variavel valor está removendo o primeiro indice do array,
+            //junto ao seu conteudo
+            this.nome = valor.shift();
+            //a função join juntou o sobrenome em uma string e separou pelo espaço inserido no argumento
+            this.sobrenome = valor.join(' ');
             console.log(valor)
         },
 
@@ -31,5 +38,5 @@ function criaPessoa(nome, sobrenome, a, p){
 }
 
 const p1 = criaPessoa('wes', 'silva', 1.92, 81);
+p1.nomeCompleto = "teste teste da silva"
 console.log(p1.nomeCompleto);
-console.log(p1.imc);
